@@ -3,8 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Permanent+Marker&family=Ruda&display=swap');
 
 body {
-    background-color:  black;
+    /* background-color:  black; */
     /* background-color:  rgb(59, 56, 56); */
+    background-color: #3c3c3c;
 }
 
 
@@ -143,8 +144,10 @@ body {
 /* gallery */
 
 .gallery {
-    background-color:black;
+    /* orginal color */
+    /* background-color:black; */
     padding: 10px 0 46px 0;
+    background-color: #3c3c3c;
   }
   
   .gallery h2 {
