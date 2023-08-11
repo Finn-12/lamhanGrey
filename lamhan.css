@@ -1,0 +1,450 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Ruda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Permanent+Marker&family=Ruda&display=swap');
+
+body {
+    background-color:  black;
+    /* background-color:  rgb(59, 56, 56); */
+}
+
+
+:root{
+    --color1:  #f26722;
+    --color2: #fff;
+}
+
+.navbar-nav{
+    align-items: center;
+}
+
+.navbar-brand {
+    margin-right: 0;
+    margin-bottom: 0.5em;
+}
+
+.navbar {
+    background-color: black;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: var(--color1);
+    font-size: 1.4em;
+    padding: 1.5em 1.5em;
+    font-family: 'Caprasimo', cursive;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: var(--color2);
+}
+
+.dropdown-menu {
+    background-color: black;
+}
+
+.dropdown-menu a {
+    font-family: 'Caprasimo', cursive;
+    color: var(--color1);
+    text-align: center;
+}
+
+@media screen and (max-width: 992px) and (orientation: landscape) {
+    /* Target iPad landscape orientation */
+    .navbar-brand img {
+        width: 60px;
+        height:60px; /* Smaller logo size for iPad landscape */
+    }
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    /* Target iPad portrait orientation */
+    .navbar-brand img {
+        width: 60px;
+        height:60px; /* Smaller logo size for iPad portrait */
+    }
+}
+
+/* Home */
+
+.home {
+  margin: 20px 0 10px 0;
+}
+
+.content h2 {
+    color: var(--color1);
+}
+
+.content p {
+    color: var(--color2);
+}
+.btn {
+    /* font-weight:bold; */
+    color: var(--color1);
+    background-color: var(--color2);
+    padding:8px 18px;
+    border: 2px solid orangered;
+    border-radius: 50px;
+    cursor:pointer;
+    transition: 0.3s;
+    box-shadow: 0 6px orangered;
+    font-family: 'Ruda';
+    font-weight: bold;
+}
+
+.button-container .btn {
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.button-container .btn a{
+  color:darkorange
+}
+
+.btn:hover {
+    color: var(--color2);
+    background-color: var(--color1);
+}
+
+.btn a:hover {
+  color: var(--color2);
+  background-color: var(--color1);
+} 
+
+.button-container{
+    margin-bottom: 40px;
+}
+
+/* About  */
+
+.about {
+  padding: 0 0 20px 0;
+}
+
+.section-title h2{
+    padding-bottom: 20px;
+    font-family: 'Caprasimo', cursive;
+    color: var(--color1);
+    text-align: center;
+}
+
+.rounded-images {
+    border-radius: 40px; 
+    padding: 10px 0;
+}
+
+.about-content p {
+    color: var(--color2);
+    margin-top: 20px;
+}
+
+.button-container-about {
+    margin-top: 10px;
+}
+
+/* gallery */
+
+.gallery {
+    background-color:black;
+    padding: 10px 0 46px 0;
+  }
+  
+  .gallery h2 {
+      text-align: center;
+      margin-top: 60px;
+      padding-bottom: 20px;
+      color: var(--color1);
+      font-family: 'Caprasimo', cursive;
+    }
+    
+  .wrapper {
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .wrapper i {
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+  }
+  .wrapper i:active{
+    transform: translateY(-50%) scale(0.85);
+  }
+  .wrapper i:first-child{
+    left: -22px;
+    z-index: 1;
+  }
+  .wrapper i:last-child{
+    right: -22px;
+  }
+  .wrapper .carousel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3));
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel.no-transition {
+    scroll-behavior: auto;
+  }
+  .carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+  .carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+  }
+  .carousel :where(.card, .img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .carousel .card {
+    scroll-snap-align: start;
+    height: 368px;
+    list-style: none;
+    background: #fff;
+    cursor: pointer;
+    padding-bottom: 15px;
+    flex-direction: column;
+    border-radius: 8px;
+  }
+  /* .carousel .card .img {
+    background: var(--color1);
+    height: 178px;
+    width: 178px;
+    border-radius: 50%;
+  } */
+  .card .img img {
+    width: 188px;
+    height: 188px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+  }
+  .carousel .card h2 {
+    font-weight: 500;
+    font-size: 1.46rem;
+    margin: 10px 0 5px;
+  }
+  .carousel .card span {
+    color: #6A6D78;
+    font-size: 1.31rem;
+  }
+  
+  @media screen and (max-width: 900px) {
+  
+     .wrapper {
+      width: 80%;
+  
+     } 
+     /* .carousel .card {
+      width: 98%
+     } */
+    .wrapper .carousel {
+      grid-auto-columns: calc((100% / 2));
+      gap: 32px;
+    }
+  
+    .card .img img {
+      width: 160px;
+      height: 160px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .wrapper .carousel {
+      grid-auto-columns: 110%;
+      gap: 40px;
+    }
+    .card .img img {
+      width: 160px;
+      height: 160px;
+    }
+  }
+
+
+/* Contact */
+
+.contact {
+  padding-top: 10px;
+}
+
+.banhmiGuy img {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100%;
+  }
+  
+  .hour h2 {
+    color: var(--color1);
+    font-family: 'Caprasimo', cursive;
+    font-size: 28px;
+  }
+  
+  .address h2 {
+    color: var(--color1);
+    font-family: 'Caprasimo', cursive;
+    font-size: 28px;
+  }
+  
+  #hours {
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+    color: var(--color2);
+  }
+  
+  .contact {
+    padding-top: 60px;
+  }
+  
+  /* contact-form */
+
+.section-title {
+  text-align: center;
+  color: var(--color1);
+  margin: 30px 0;
+  font-family: 'Caprasimo', cursive;
+  font-size: 32px;
+}
+
+.form-label {
+  color: var(--color1);
+}
+
+.form-control {
+  width: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-btn {
+  margin: 30px 0;
+}
+
+/* testimonials */
+
+.testimonials {
+  font-family: 'Noto Sans', sans-serif;
+  padding: 10px 0 0 0;
+}
+.testimonials h2 {
+color: var(--color1);
+text-align: center;
+font-family: 'Caprasimo', cursive;
+font-size: 32px;
+position: relative;
+margin: 30px 0 60px;
+}
+
+/* h2::after {
+content: "";
+width: 140px;
+position: absolute;
+margin: 0 auto;
+height: 3px;
+background: #db584e;
+left: 0;
+right: 0;
+bottom: -10px;
+  opacity: .8;
+} */
+
+.testimonials .col-center {
+margin: 0 auto;
+float: none !important;
+}
+.testimonials  .carousel {
+margin: 50px auto;
+padding: 0 70px;
+}
+.testimonials .carousel-item {
+color: #fff;
+font-size: 14px;
+  text-align: center;
+overflow: hidden;
+  min-height: 290px;
+}
+.testimonials .carousel .item .img-box {
+width: 135px;
+height: 135px;
+margin: 0 auto;
+padding: 5px;
+border: 1px solid #ddd;
+border-radius: 50%;
+}
+.testimonials .carousel .img-box img {
+width: 100%;
+height: 100%;
+display: block;
+border-radius: 50%;
+}
+.testimonials .carousel .testimonial {
+padding: 30px 0 10px;
+}
+.testimonials .carousel .overview {	
+font-style: italic;
+}
+.testimonials .carousel .overview b {
+color: darkorange;
+}
+.testimonials .carousel .carousel-control {
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  top: 50%;
+  background: none;
+}
+.testimonials .carousel-control i {
+  font-size: 68px;
+  line-height: 42px;
+  position: absolute;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 0 3px 3px #e6e6e6, 0 0 0 #000;
+}
+.testimonials .carousel .carousel-indicators {
+  bottom: -40px;
+}
+.testimonials .carousel-indicators li, .carousel-indicators li.active {
+  width: 10px;
+  height: 10px;
+  margin: 1px 3px;
+  border-radius: 50%;
+}
+.testimonials .carousel-indicators li {	
+  background: #999;
+  border-color: transparent;
+  box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+.testimonials .carousel-indicators li.active {	
+  background: darkorange;		
+  box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+
+/* footer */
+

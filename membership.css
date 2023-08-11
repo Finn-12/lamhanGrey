@@ -1,0 +1,12 @@
+.nav-pills li a:hover {
+    background-color: darkorange;
+}
+
+.mem-title {
+    color: darkorange;
+    font-weight: bold;
+}
+
+.dropdown-toggle i {
+    margin-right: 10px;
+}

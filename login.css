@@ -1,0 +1,36 @@
+.gradient-custom {
+
+    /* fallback for old browsers */
+    background: #080808;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgb(5, 5, 5), rgb(252, 123, 37));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(4, 4, 4), rgba(252, 123, 37))
+    }
+
+.bg {
+    background-color: black !important;
+}
+
+.title {
+    color: darkorange;
+}
+
+.email {
+    color: darkorange;
+    text-align: left;
+}
+
+.password {
+    color: darkorange;
+    text-align: left;
+}
+
+.btn-warning {
+    background-color: #FF8C00; /* Use the desired dark orange color */
+    color: white;
+    border: 2px solid #FF8C00; /* Set initial border color */
+  }
+

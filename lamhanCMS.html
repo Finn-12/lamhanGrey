@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="lamhanCMS.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="bg-dark col-auto col-md-4 col-lg-2 min-vh-100 d-flex flex-column justify-content-between">
+                <div class="bg-dark p-2">
+                    <a class="d-flex text-decoration-none mt-1 align-items-center text-white">
+                        <span class="mem-title fs-4 d-sm-inline">Lamhan CMS</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mt-4">
+                        <li class="nav-item py-2 py-sm-0">
+                            <a href="#home" class="nav-link text-white" aria-current="page">
+                                <span class="fs-4 ms-3 d-sm-inline" >Homepage</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-sm-0">
+                            <a href="#about" class="nav-link text-white" aria-current="page">
+                                <span class="fs-4 ms-3 d-sm-inline">About</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-sm-0">
+                            <a href="#" class="nav-link text-white" aria-current="page">
+                                <span class="fs-4 ms-3 d-sm-inline">Gallery</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-sm-0">
+                            <a href="#" class="nav-link text-white" aria-current="page">
+                                <span class="fs-4 ms-3 d-sm-inline">Hours</span>
+                            </a>
+                        </li>
+                        <li class="nav-item py-2 py-sm-0">
+                          <a href="#" class="nav-link text-white" aria-current="page">
+                              <span class="fs-4 ms-3 d-sm-inline">Contact</span>
+                          </a>
+                        </li>
+                        <li class="nav-item py-2 py-sm-0">
+                          <a href="#" class="nav-link text-white" aria-current="page">
+                              <span class="fs-4 ms-3 d-sm-inline">Membership</span>
+                          </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="dropdown open p-4">
+                    <button class="btn border-none dropdown-toggle text-white" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                                <i class="fa fa-user ml-2"></i><span class="ms-2">User</span>
+                            </button>
+                    <div class="dropdown-menu" aria-labelledby="triggerId">
+                        <button class="dropdown-item" href="#">Account</button>
+                        <button class="dropdown-item" href="#">Log out</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- content -->
+
+            <div class="col-md-9 col-lg-10 content">
+
+                <section class="home" id="home">
+                    <div class="container">
+                        <h1 class="mt-5">Homepage</h1>
+                        <!-- Rest of the content -->
+                        <h6>1, Add/Remove delivery buttons</h6>
+    
+                        <!-- Add Online Delivery Button -->
+                        <button class="btn btn-primary mt-3" onclick="addingOnlineDeliveryButton()">ADD ONLINE DELIVERY BUTTON</button>
+    
+                        <!-- Remove Online Delivery Button -->
+                        <button class="btn btn-danger mt-3" onclick="removingOnlineDeliveryButton()">REMOVE ONLINE DELIVERY BUTTON</button>
+
+                        <!-- Upload picture -->
+                        <h6 class="mt-4">2, Upload/Update landing image</h6>
+                        <label for="input-file">Update landing image</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+                        
+                    
+                    </div>
+                </section>
+
+                <section class="about" id="about">
+                    <div class="container">
+                        <h1 class="mt-5">About</h1>
+                        <p>This section is intentionally left blank.</p>
+                    </div>
+                </section>
+            </div>
+            <!-- Add other sections here -->
+
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+
+    <script>
+
+        //Update panding-page image
+        document.getElementById('input-file').addEventListener('change', function() {
+            const selectedFile = this.files[0];
+
+            if (selectedFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newImageSrc = e.target.result;
+                    localStorage.setItem('newImageSrc', newImageSrc);
+                    window.location.href = 'lamhan.html';
+                };
+                reader.readAsDataURL(selectedFile);
+            }
+        });
+
+        // to make sure that once click each section in nav bar it only shows that section
+        // Get references to the section links and sections
+        const sectionLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.content section');
+
+        // Add click event listeners to section links
+        sectionLinks.forEach((link, index) => {
+            link.addEventListener('click', () => {
+                // Hide all sections
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                // Show the selected section
+                sections[index].style.display = 'block';
+            });
+        });
+
+
+      function addingOnlineDeliveryButton() {
+          // Prompt for the name and href of the new online delivery button
+          var buttonName = prompt("Enter the name of the new online delivery button:");
+          var buttonHref = prompt("Enter the href of the new online delivery button:");
+          if (buttonName && buttonHref) {
+              // Encode the button name and href to handle special characters in URLs
+              var encodedButtonName = encodeURIComponent(buttonName);
+              var encodedButtonHref = encodeURIComponent(buttonHref);
+
+              // Open lamhan.html and pass the button name and href as URL parameters
+              window.open("lamhan.html?newButtonName=" + encodedButtonName + "&newButtonHref=" + encodedButtonHref, "_blank");
+          }
+      }
+
+      function removingOnlineDeliveryButton() {
+          // Prompt for the index of the button to remove
+          var buttonIndex = prompt("Enter the index of the button to remove (0 for the first button, 1 for the second, and so on):");
+          if (buttonIndex !== null) {
+              // Open lamhan.html and pass the button index as a URL parameter
+              window.open("lamhan.html?removeButton=" + buttonIndex, "_blank");
+          }
+      }
+  </script>
+    
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

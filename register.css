@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    background: #080808;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgb(5, 5, 5), rgb(252, 123, 37));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(4, 4, 4), rgba(252, 123, 37));
+  }
+  
+.card {
+    background-color: black !important;
+}
+
+.title {
+    color: darkorange;
+}
+
+.name {
+    color: darkorange;
+}
+
+.mail {
+    color: darkorange;
+}
+
+.pass {
+    color: darkorange;
+}
+
+.repeatPass {
+    color: darkorange;
+}
+
+.term {
+    color: white;
+}
+
+.ask {
+    color: white;
+}
+
+u {
+    color: darkorange;
+}
+
+.btn-warning {
+    background-color: #FF8C00; 
+    color: white;
+    border: 2px solid #FF8C00; 
+  }
+
+/* pop-up */
+.popup {
+    width: 400px;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px ;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    padding: 0 30px 60px;
+    color: #333;
+    visibility: hidden;
+    transform: translate(0, 50%);
+}
+
+.open-popup {
+    visibility: visible;
+    transform: translate(-100%, 0) scale (1);
+}
+
+.popup img {
+    width: 100px;
+    margin-top: -50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50% ;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.popup h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #ff7200 ;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+
+}
