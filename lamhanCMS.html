@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="lamhanCMS.css">
+    <link rel="stylesheet" href="membership.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
@@ -86,9 +87,14 @@
 
                         <!-- Upload picture -->
                         <h6 class="mt-4">2, Upload/Update landing image</h6>
-                        <label for="input-file">Update landing image</label>
-                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
-                        
+                        <label for="home-input-file">Update landing image</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="home-input-file">
+
+                        <!-- Text editing buttons -->
+                        <h6 class="mt-4">3, Text editing</h6>
+                        <!-- Add these buttons to your lamhanCMS.html page -->
+                        <button class="btn btn-primary mt-3" onclick="editHeading()">Edit Heading</button>
+                        <button class="btn btn-primary mt-3" onclick="editParagraph()">Edit Paragraph</button>   
                     
                     </div>
                 </section>
@@ -96,7 +102,18 @@
                 <section class="about" id="about">
                     <div class="container">
                         <h1 class="mt-5">About</h1>
-                        <p>This section is intentionally left blank.</p>
+
+                        <!-- Upload picture -->
+                        <h6 class="mt-4">1, Update image</h6>
+                        <label for="about-input-file-one">Update about image 1</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="about-input-file-one">
+
+                        <label for="about-input-file-two">Update about image 2</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="about-input-file-two">
+
+                        <label for="about-input-file-three">Update about image 3</label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="about-input-file-three">
+
                     </div>
                 </section>
             </div>
@@ -110,8 +127,33 @@
 
     <script>
 
-        //Update panding-page image
-        document.getElementById('input-file').addEventListener('change', function() {
+    // HOME
+
+    function addingOnlineDeliveryButton() {
+          // Prompt for the name and href of the new online delivery button
+          var buttonName = prompt("Enter the name of the new online delivery button:");
+          var buttonHref = prompt("Enter the href of the new online delivery button:");
+          if (buttonName && buttonHref) {
+              // Encode the button name and href to handle special characters in URLs
+              var encodedButtonName = encodeURIComponent(buttonName);
+              var encodedButtonHref = encodeURIComponent(buttonHref);
+
+              // Open lamhan.html and pass the button name and href as URL parameters
+              window.open("index.html?newButtonName=" + encodedButtonName + "&newButtonHref=" + encodedButtonHref, "_blank");
+          }
+      }
+
+      function removingOnlineDeliveryButton() {
+          // Prompt for the index of the button to remove
+          var buttonIndex = prompt("Enter the index of the button to remove (0 for the first button, 1 for the second, and so on):");
+          if (buttonIndex !== null) {
+              // Open lamhan.html and pass the button index as a URL parameter
+              window.open("index.html?removeButton=" + buttonIndex, "_blank");
+          }
+      }
+
+        //Update Landing-page image
+        document.getElementById('home-input-file').addEventListener('change', function() {
             const selectedFile = this.files[0];
 
             if (selectedFile) {
@@ -119,7 +161,7 @@
                 reader.onload = function(e) {
                     const newImageSrc = e.target.result;
                     localStorage.setItem('newImageSrc', newImageSrc);
-                    window.location.href = 'lamhan.html';
+                    window.location.href = 'index.html';
                 };
                 reader.readAsDataURL(selectedFile);
             }
@@ -144,30 +186,67 @@
         });
 
 
-      function addingOnlineDeliveryButton() {
-          // Prompt for the name and href of the new online delivery button
-          var buttonName = prompt("Enter the name of the new online delivery button:");
-          var buttonHref = prompt("Enter the href of the new online delivery button:");
-          if (buttonName && buttonHref) {
-              // Encode the button name and href to handle special characters in URLs
-              var encodedButtonName = encodeURIComponent(buttonName);
-              var encodedButtonHref = encodeURIComponent(buttonHref);
+      //----------------------------------------------------------------
+      // Langing page text editing
 
-              // Open lamhan.html and pass the button name and href as URL parameters
-              window.open("lamhan.html?newButtonName=" + encodedButtonName + "&newButtonHref=" + encodedButtonHref, "_blank");
-          }
-      }
+      function editHeading() {
+        const newHeading = prompt("Enter the new heading text:");
+        if (newHeading !== null && newHeading.trim() !== "") {
+            try {
+                localStorage.setItem("editable-heading", newHeading);
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Local storage is full or unavailable:", error);
+            }
+        }
+    }
 
-      function removingOnlineDeliveryButton() {
-          // Prompt for the index of the button to remove
-          var buttonIndex = prompt("Enter the index of the button to remove (0 for the first button, 1 for the second, and so on):");
-          if (buttonIndex !== null) {
-              // Open lamhan.html and pass the button index as a URL parameter
-              window.open("lamhan.html?removeButton=" + buttonIndex, "_blank");
-          }
-      }
+    // ABOUT
+
+            //Update about-page image 1
+            document.getElementById('about-input-file-one').addEventListener('change', function() {
+            const selectedFile = this.files[0];
+
+            if (selectedFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newImageAbout1 = e.target.result;
+                    localStorage.setItem('newImageAbout1', newImageAbout1);
+                    window.location.href = 'index.html';
+                };
+                reader.readAsDataURL(selectedFile);}
+            });
+
+            //Update about-page image 2
+            document.getElementById('about-input-file-two').addEventListener('change', function() {
+            const selectedFile = this.files[0];
+
+            if (selectedFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newImageAbout2 = e.target.result;
+                    localStorage.setItem('newImageAbout2', newImageAbout2);
+                    window.location.href = 'index.html';
+                };
+                reader.readAsDataURL(selectedFile);}
+            });
+
+            //Update about-page image 3
+        
+            document.getElementById('about-input-file-three').addEventListener('change', function() {
+            const selectedFile = this.files[0];
+
+            if (selectedFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newImageAbout3 = e.target.result;
+                    localStorage.setItem('newImageAbout3', newImageAbout3);
+                    window.location.href = 'index.html';
+                };
+                reader.readAsDataURL(selectedFile);}
+            });
+
   </script>
-    
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -49,7 +49,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="login.html">Log in</a>
-                  <a class="dropdown-item" href="register.html">Register</a>
+                  <a class="dropdown-item" href="resgister.html">Register</a>
                 </div>
             </ul>
           </div>
@@ -62,13 +62,20 @@
 
             <div class="col-md-6">
                 <div class="about-image" data-aos="fade-right" data-aos-delay="150">
-                    <img src="./images/hm-img.png" alt="" class="img-fluid">
+                    <img id="about-image" src="./images/hm-img.png" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="col-md-6">
               <div class="content" data-aos="fade-left" data-aos-delay="150">
-                  <h2 class="text-center">Welcome to Lamhan Banh mi</h2>
-                  <p class="text-center">Lamhan is a Toronto based Vietnamese Banh Mi shop specializing in Banh Mi sandwiches and Vietnamese street food</p>
+                  <!-- In your lamhanCMSorg.html page, update the sections to use the localStorage values -->
+                  <h2 id="editable-heading" class="text-center">
+                    Welcome to Lamhan Banh mi
+
+                  </h2>
+                  <p class="text-center" id="editable-paragraph">
+                    Lamhan is a Toronto based Vietnamese Banh Mi shop specializing in Banh Mi sandwiches and Vietnamese street food
+                  </p>
+
                   <div class="button-container text-center">
                     <button class="btn">
                       <a href="#Instagram" target="_blank">PICKUP ORDER OR CATERING
@@ -100,13 +107,13 @@
         </div>
         <div class="row">
           <div class="col-md-6 col-lg-4 col-ms-12">
-              <img src="images/img1.webp" alt="Image 1" class="img-fluid rounded-images" data-aos="fade-up" data-aos-delay="150">
+              <img id="about-image1" src="images/img1.webp" alt="Image 1" class="img-fluid rounded-images" data-aos="fade-up" data-aos-delay="150">
           </div>
           <div class="col-md-6 col-lg-4 col-ms-12 d-md-none d-lg-block">
-              <img src="images/img2.webp" alt="Image 2" class="img-fluid rounded-images" data-aos="fade-up" data-aos-delay="250">
+              <img id="about-image2"src="images/img2.webp" alt="Image 2" class="img-fluid rounded-images" data-aos="fade-up" data-aos-delay="250">
           </div>
           <div class="col-md-6 col-lg-4 col-ms-12">
-              <img src="images/img3.webp" alt="Image 3" class="img-fluid rounded-images" data-aos="fade-up" data-aos-delay="350">
+              <img id="about-image3" src="images/img3.webp" alt="Image 3" class="img-fluid rounded-images" data-aos="fade-up" data-aos-delay="350">
           </div>
         </div>
         <div class="row align-items-center">
@@ -381,6 +388,7 @@
         });
         
     </script>
+
 
     <script src="lamhanCMS.js"></script>
     <script src="lamhan.js"> </script>
