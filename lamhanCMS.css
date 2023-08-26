@@ -1,4 +1,4 @@
-.nav-pills li a:hover {
+/* .nav-pills li a:hover {
     background-color: darkorange;
 }
 
@@ -10,6 +10,29 @@
 .dropdown-toggle i {
     margin-right: 10px;
 }
+
+.content section {
+    display: none;
+}
+
+label {
+    display: block;
+    width: 200px;
+    background: orange;
+    color: #fff;
+    padding: 12px;
+    margin: 10px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.update-landing-image input {
+    display: none;
+}
+
+.about-images input {
+    display: none;
+} */
 
 .content section {
     display: none;
