@@ -74,48 +74,208 @@
             <div class="col-md-9 col-lg-10 content">
 
                 <section class="home" id="home">
-                    <div class="container">
-                        <h1 class="mt-5">Homepage</h1>
-                        <!-- Rest of the content -->
-                        <h6>1, Add/Remove delivery buttons</h6>
-    
-                        <!-- Add Online Delivery Button -->
-                        <button class="btn btn-primary mt-3" onclick="addingOnlineDeliveryButton()">ADD ONLINE DELIVERY BUTTON</button>
-    
-                        <!-- Remove Online Delivery Button -->
-                        <button class="btn btn-danger mt-3" onclick="removingOnlineDeliveryButton()">REMOVE ONLINE DELIVERY BUTTON</button>
+                    <h1 class="mt-5">Homepage</h1>
 
+                    <div class="delivery-buttons">
+                        <h6>1, Add delivery buttons</h6>
+                        <form id="addDeliveryButtons">
+                            <div class="form-group">
+                                <label for="buttonName">Enter the name of the new online delivery button:</label>
+                                <input type="text" class="form-control" id="buttonName" placeholder="delivery button's name">
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="buttonLink">Enter the href of the new online delivery button:</label>
+                                <input type="text" class="form-control" id="buttonLink" placeholder="Button's link">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-3">Add button</button>
+                        </form>
+                        
+                        <h6 class="mt-4">2, Remove delivery buttons</h6>
+                        <form id="removeDeliveryButtons">
+                            <div class="form-group">
+                                <label for="buttonIndex">Enter the index of the button to remove (0 for the first button, 1 for the second, and so on):</label>
+                                <input type="text" class="form-control" id="buttonIndex" placeholder="delivery button's index (0,1,2..)">
+                            </div>
+                            <button type="submit" class="btn btn-danger mt-3">Remove button</button>
+                        </form>
+
+                    </div>
+
+                    <div class="update-landing-image">
                         <!-- Upload picture -->
-                        <h6 class="mt-4">2, Upload/Update landing image</h6>
+                        <h6 class="mt-4">3, Upload/Update landing image</h6>
                         <label for="home-input-file">Update landing image</label>
                         <input type="file" accept="image/jpeg, image/png, image/jpg" id="home-input-file">
-
-                        <!-- Text editing buttons -->
-                        <h6 class="mt-4">3, Text editing</h6>
-                        <!-- Add these buttons to your lamhanCMS.html page -->
-                        <button class="btn btn-primary mt-3" onclick="editHeading()">Edit Heading</button>
-                        <button class="btn btn-primary mt-3" onclick="editParagraph()">Edit Paragraph</button>   
-                    
                     </div>
+
+                    <div class="home-text-edit">
+                        <h6 class="mt-4">3, Edit text for Home section</h6>
+                        <form id="homeTextForm">
+                            <!-- home heading -->
+                            <div class="form-group">
+                                <label for="homeHeading">Enter the new heading text:</label>
+                                <input type="text" class="form-control" id="homeHeading" placeholder="Enter the new heading text">
+                            </div>
+                    
+                            <!-- home paragraph -->
+                            <div class="form-group">
+                                <label for="homeParagraph">Enter the new paragraph text:</label>
+                                <input type="text" class="form-control" id="homeParagraph" placeholder="Enter the new paragraph text:">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mt-3">Update text</button>
+                        </form>
+                    </div>
+
+
                 </section>
 
                 <section class="about" id="about">
-                    <div class="container">
+                    
                         <h1 class="mt-5">About</h1>
 
                         <!-- Upload picture -->
-                        <h6 class="mt-4">1, Update image</h6>
-                        <label for="about-input-file-one">Update about image 1</label>
-                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="about-input-file-one">
+                        
+                        <div class="about-images">
+                            <h6 class="mt-4">1, Update image</h6>
+                            <label for="about-input-file-one">Update about image 1</label>
+                            <input type="file" accept="image/jpeg, image/png, image/jpg" id="about-input-file-one">
 
-                        <label for="about-input-file-two">Update about image 2</label>
-                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="about-input-file-two">
+                            <label for="about-input-file-two">Update about image 2</label>
+                            <input type="file" accept="image/jpeg, image/png, image/jpg" id="about-input-file-two">
 
-                        <label for="about-input-file-three">Update about image 3</label>
-                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="about-input-file-three">
+                            <label for="about-input-file-three">Update about image 3</label>
+                            <input type="file" accept="image/jpeg, image/png, image/jpg" id="about-input-file-three">
+                        </div>
+                        
+                        <div class="about-text">
+                        
+                        <!-- Text editing buttons -->
+                        <h6 class="mt-4">2, Text editing</h6>
+                        <!-- Add these buttons to your lamhanCMS.html page -->
+                        <form id="editAboutParagraph">
+                            <!-- Monday -->
+                            <div class="form-group">
+                                <label for="newPara">Enter the new paragraph text:</label>
+                                <input type="text" class="form-control" id="newPara" placeholder="Enter new paragraph text here">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        </form>
 
-                    </div>
+                        </div>
+
+                    
                 </section>
+
+                <!-- gallery -->
+                <section class="gallery" id="gallery">
+
+                    <h1 class="mt-5">Gallery</h1>
+                    <h6>1, Add Image and Text</h6>
+
+                    <form id="galleryForm">
+                        <!-- Monday -->
+                        <div class="form-group">
+                            <label for="imageUrl">Enter the URL of the image:</label>
+                            <input type="text" class="form-control" id="imageUrl" placeholder="Enter the URL of the image">
+                        </div>
+                
+                        <!-- Tuesday -->
+                        <div class="form-group">
+                            <label for="cardTitle">Enter the title of the card:</label>
+                            <input type="text" class="form-control" id="cardTitle" placeholder="Enter the title of the card">
+                        </div>
+
+                         <!-- Tuesday -->
+                        <div class="form-group">
+                            <label for="cardSubtitle">Enter the subtitle of the card:</label>
+                            <input type="text" class="form-control" id="cardSubtitle" placeholder="Enter the subtitle of the card">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+
+                </section>
+
+                <section>
+                    <!-- Hours -->
+                    <h6 class="mt-4">Hours Update</h6>
+                    
+                    <form id="hoursForm">
+                        <!-- Monday -->
+                        <div class="form-group">
+                            <label for="mondayHours">Monday:</label>
+                            <input type="text" class="form-control" id="mondayHours" placeholder="Enter Monday hours text">
+                        </div>
+                
+                        <!-- Tuesday -->
+                        <div class="form-group">
+                            <label for="tuesdayHours">Tuesday:</label>
+                            <input type="text" class="form-control" id="tuesdayHours" placeholder="Enter Tuesday hours text">
+                        </div>
+                
+                        <!-- Wednesday -->
+                        <div class="form-group">
+                            <label for="wednesdayHours">Wednesday:</label>
+                            <input type="text" class="form-control" id="wednesdayHours" placeholder="Enter Wednesday hours text">
+                        </div>
+                
+                        <!-- Thursday -->
+                        <div class="form-group">
+                            <label for="thursdayHours">Thursday:</label>
+                            <input type="text" class="form-control" id="thursdayHours" placeholder="Enter Thursday hours text">
+                        </div>
+                
+                        <!-- Friday -->
+                        <div class="form-group">
+                            <label for="fridayHours">Friday:</label>
+                            <input type="text" class="form-control" id="fridayHours" placeholder="Enter Friday hours text">
+                        </div>
+                
+                        <!-- Saturday -->
+                        <div class="form-group">
+                            <label for="saturdayHours">Saturday:</label>
+                            <input type="text" class="form-control" id="saturdayHours" placeholder="Enter Saturday hours text">
+                        </div>
+                
+                        <!-- Sunday -->
+                        <div class="form-group">
+                            <label for="sundayHours">Sunday:</label>
+                            <input type="text" class="form-control" id="sundayHours" placeholder="Enter Sunday hours text">
+                        </div>
+                
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+                </section>
+
+
+                <!-- Contact update -->
+                <section>
+
+                    <h6 class="mt-4">Contact Update</h6>
+                    
+                    <form id="contactForm">
+                        <!-- Monday -->
+                        <div class="form-group">
+                            <label for="phoneUpdate">Phone</label>
+                            <input type="text" class="form-control" id="phoneUpdate" placeholder="Enter new phone number">
+                        </div>
+                
+                        <!-- Tuesday -->
+                        <div class="form-group">
+                            <label for="emailUpdate">Email</label>
+                            <input type="text" class="form-control" id="emailUpdate" placeholder="Enter new email address">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+                </section>
+                
+
             </div>
             <!-- Add other sections here -->
 
@@ -129,10 +289,11 @@
 
     // HOME
 
-    function addingOnlineDeliveryButton() {
+    document.getElementById("addDeliveryButtons").addEventListener("submit", function (event) {
+        event.preventDefault();
           // Prompt for the name and href of the new online delivery button
-          var buttonName = prompt("Enter the name of the new online delivery button:");
-          var buttonHref = prompt("Enter the href of the new online delivery button:");
+          var buttonName = document.getElementById("buttonName").value;
+          var buttonHref = document.getElementById("buttonLink").value;
           if (buttonName && buttonHref) {
               // Encode the button name and href to handle special characters in URLs
               var encodedButtonName = encodeURIComponent(buttonName);
@@ -141,16 +302,17 @@
               // Open lamhan.html and pass the button name and href as URL parameters
               window.open("index.html?newButtonName=" + encodedButtonName + "&newButtonHref=" + encodedButtonHref, "_blank");
           }
-      }
+      });
 
-      function removingOnlineDeliveryButton() {
+    document.getElementById("removeDeliveryButtons").addEventListener("submit", function (event) {
+        event.preventDefault();
           // Prompt for the index of the button to remove
-          var buttonIndex = prompt("Enter the index of the button to remove (0 for the first button, 1 for the second, and so on):");
+          var buttonIndex = document.getElementById("buttonIndex").value;
           if (buttonIndex !== null) {
               // Open lamhan.html and pass the button index as a URL parameter
               window.open("index.html?removeButton=" + buttonIndex, "_blank");
           }
-      }
+      });
 
         //Update Landing-page image
         document.getElementById('home-input-file').addEventListener('change', function() {
@@ -189,8 +351,12 @@
       //----------------------------------------------------------------
       // Langing page text editing
 
-      function editHeading() {
-        const newHeading = prompt("Enter the new heading text:");
+    document.getElementById("homeTextForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const newHeading = document.getElementById("homeHeading").value;
+        const newHomeParagraph = document.getElementById("homeParagraph").value;
+
         if (newHeading !== null && newHeading.trim() !== "") {
             try {
                 localStorage.setItem("editable-heading", newHeading);
@@ -199,7 +365,17 @@
                 console.error("Local storage is full or unavailable:", error);
             }
         }
-    }
+
+        if (newHomeParagraph !== null && newHomeParagraph.trim() !== "") {
+            try {
+                localStorage.setItem("editable-home-paragraph", newHomeParagraph);
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Local storage is full or unavailable:", error);
+            }
+        }
+    });
+
 
     // ABOUT
 
@@ -245,6 +421,124 @@
                 };
                 reader.readAsDataURL(selectedFile);}
             });
+
+
+    // About text editing
+
+    document.getElementById("editAboutParagraph").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+        const newAboutParagraph = document.getElementById("newPara").value;
+        if (newAboutParagraph !== null && newAboutParagraph.trim() !== "") {
+            try {
+                localStorage.setItem("editable-about-paragraph", newAboutParagraph);
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Local storage is full or unavailable:", error);
+            }
+        }
+    });
+
+    
+    //gallery
+
+    document.getElementById("galleryForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const imageUrl = document.getElementById("imageUrl").value;
+        const cardTitle = document.getElementById("cardTitle").value;
+        const cardSubtitle = document.getElementById("cardSubtitle").value;
+
+        // Check if any prompt was canceled
+        if (imageUrl === null || cardTitle === null || cardSubtitle === null) {
+            return;
+        }
+
+        // Store the card data in Local Storage
+        localStorage.setItem("newCardImageUrl", imageUrl);
+        localStorage.setItem("newCardTitle", cardTitle);
+        localStorage.setItem("newCardSubtitle", cardSubtitle);
+
+        // Open index.html
+        window.open("index.html", "_blank");
+    });
+
+
+    // Hours
+
+    document.getElementById("hoursForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
+    
+    // Get the values entered by the user
+    const mondayHours = document.getElementById("mondayHours").value;
+    const tuesdayHours = document.getElementById("tuesdayHours").value;
+    const wednesdayHours = document.getElementById("wednesdayHours").value;
+    const thursdayHours = document.getElementById("thursdayHours").value;
+    const fridayHours = document.getElementById("fridayHours").value;
+    const saturdayHours = document.getElementById("saturdayHours").value;
+    const sundayHours = document.getElementById("sundayHours").value;
+
+    if (mondayHours !== null && mondayHours.trim() !== "") {
+        localStorage.setItem("monday", mondayHours);
+        window.location.href = "index.html";
+    }
+
+    if (tuesdayHours !== null && tuesdayHours.trim() !== "") {
+        localStorage.setItem("tuesday", tuesdayHours);
+        window.location.href = "index.html";
+    }
+
+    if (wednesdayHours !== null && wednesdayHours.trim() !== "") {
+        localStorage.setItem("wednesday", wednesdayHours);
+        window.location.href = "index.html";
+    }
+
+    if (thursdayHours !== null && thursdayHours.trim() !== "") {
+        localStorage.setItem("thursday", thursdayHours);
+        window.location.href = "index.html";
+    }
+
+    if (fridayHours !== null && fridayHours.trim() !== "") {
+        localStorage.setItem("friday", fridayHours);
+        window.location.href = "index.html";
+    }
+
+    if (saturdayHours !== null && saturdayHours.trim() !== "") {
+        localStorage.setItem("saturday", saturdayHours);
+        window.location.href = "index.html";
+    }
+
+    if (sundayHours !== null && sundayHours.trim() !== "") {
+        localStorage.setItem("sunday", sundayHours);
+        window.location.href = "index.html";
+    }
+           
+    });
+
+
+    // contact
+
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
+    
+    // Get the values entered by the user
+    const updatePhone = document.getElementById("phoneUpdate").value;
+    const updateEmail = document.getElementById("emailUpdate").value;
+
+    if (updatePhone !== null && updatePhone.trim() !== "") {
+        localStorage.setItem("phone", updatePhone);
+        window.location.href = "index.html";
+    }
+
+    if (updateEmail !== null && updateEmail.trim() !== "") {
+        localStorage.setItem("email", updateEmail);
+        window.location.href = "index.html";
+    }
+
+    });
+
+
+
+
 
   </script>
 

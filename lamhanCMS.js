@@ -34,10 +34,30 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     updateHeading();
+    updateHomeParagraph()
     updateImage();
     updateAboutImage1();
     updateAboutImage2();
     updateAboutImage3();
+    updateAboutParagraph()
+    addNewCard();
+    updateHours();
+    updateContact();
+
+    // Retrieve the card data from Local Storage
+    const newImageUrl = localStorage.getItem("newCardImageUrl");
+    const newCardTitle = localStorage.getItem("newCardTitle");
+    const newCardSubtitle = localStorage.getItem("newCardSubtitle");
+
+    // Check if the card data exists and call addNewCard if it does
+    if (newImageUrl && newCardTitle && newCardSubtitle) {
+        addNewCard(newImageUrl, newCardTitle, newCardSubtitle);
+        
+        // Clear the card data from Local Storage to avoid reusing it
+        localStorage.removeItem("newCardImageUrl");
+        localStorage.removeItem("newCardTitle");
+        localStorage.removeItem("newCardSubtitle");
+    }
 
 });
 
@@ -51,6 +71,17 @@ function updateHeading() {
         }
     }
 }
+
+function updateHomeParagraph() {
+    const storedHomeParagraph = localStorage.getItem("editable-home-paragraph");
+    if (storedHomeParagraph) {
+        const editableHomeElement = document.querySelector("p#editable-home-paragraph");
+        if (editableHomeElement) {
+            editableHomeElement.textContent = storedHomeParagraph;
+        }
+    }
+}
+
 
 function updateImage() {
     const newImageSrc = localStorage.getItem('newImageSrc');
@@ -86,4 +117,145 @@ function updateAboutImage3() {
         aboutImage.src = newImageAbout3;
         localStorage.removeItem('newImageAbout3');
     }
+}
+
+// update text
+function updateAboutParagraph() {
+    const storedAboutParagraph = localStorage.getItem("editable-about-paragraph");
+    if (storedAboutParagraph) {
+        const editableAboutElement = document.querySelector("p#editable-about-paragraph");
+        if (editableAboutElement) {
+            editableAboutElement.textContent = storedAboutParagraph;
+        }
+    }
+}
+
+
+
+function addNewCard(newImageUrl, newCardTitle, newCardSubtitle) {
+    // Check if the image URL is empty or null
+    if (!newImageUrl || newImageUrl.trim() === "") {
+        return;
+    }
+
+    // Create a new card element
+    var newCard = document.createElement("li");
+    newCard.className = "card";
+
+    // Add the image to the new card
+    var newImage = document.createElement("div");
+    newImage.className = "img";
+    newImage.innerHTML = '<img src="' + newImageUrl + '" alt="img" draggable="false">';
+    newCard.appendChild(newImage);
+
+    // Add the title to the new card (use <h2> for card title)
+    var newTitleElement = document.createElement("h2");
+    newTitleElement.textContent = newCardTitle;
+    newCard.appendChild(newTitleElement);
+
+    // Add the subtitle to the new card
+    var newSubtitleElement = document.createElement("span");
+    newSubtitleElement.textContent = newCardSubtitle;
+    newCard.appendChild(newSubtitleElement);
+
+    // Get the gallery section element
+    var gallerySection = document.getElementById("gallery");
+
+    // Get the carousel element within the gallery section
+    var carousel = gallerySection.querySelector(".carousel");
+
+    // Insert the new card before the last card in the carousel
+    var lastCard = carouselChildrens[carouselChildrens.length - 1];
+    carousel.insertBefore(newCard, lastCard);
+
+    // Update the carouselChildrens array with the new card
+    carouselChildrens.push(newCard);
+
+    // Calculate the new cardPerView value
+    cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+
+    // Scroll the carousel to the right to show the new card
+    carousel.scrollLeft += firstCardWidth;
+
+    // Remove the transition class to prevent jumping back to the first picture
+    carousel.classList.remove("no-transition");
+}
+
+// hours
+
+function updateHours() {
+    const storedMonday = localStorage.getItem("monday");
+    if (storedMonday) {
+        const editableMondayElement = document.querySelector("span#monday");
+        if (editableMondayElement) {
+            editableMondayElement.textContent = storedMonday;
+        }
+    }
+
+    const storedTuesday = localStorage.getItem("tuesday");
+    if (storedTuesday) {
+        const editableTuesdayElement = document.querySelector("span#tuesday");
+        if (editableTuesdayElement) {
+            editableTuesdayElement.textContent = storedTuesday;
+        }
+    }
+
+    const storedWednesday = localStorage.getItem("wednesday");
+    if (storedWednesday) {
+        const editableWednesdayElement = document.querySelector("span#wednesday");
+        if (editableWednesdayElement) {
+            editableWednesdayElement.textContent = storedWednesday;
+        }
+    }
+
+    const storedThursday = localStorage.getItem("thursday");
+    if (storedThursday) {
+        const editableThursdayElement = document.querySelector("span#thursday");
+        if (editableThursdayElement) {
+            editableThursdayElement.textContent = storedThursday;
+        }
+    }
+
+    const storedFriday = localStorage.getItem("friday");
+    if (storedFriday) {
+        const editableFridayElement = document.querySelector("span#friday");
+        if (editableFridayElement) {
+            editableFridayElement.textContent = storedFriday;
+        }
+    }
+
+    const storedSaturday = localStorage.getItem("saturday");
+    if (storedSaturday) {
+        const editableSaturdayElement = document.querySelector("span#saturday");
+        if (editableSaturdayElement) {
+            editableSaturdayElement.textContent = storedSaturday;
+        }
+    }
+
+    const storedSunday = localStorage.getItem("sunday");
+    if (storedSunday) {
+        const editableSundayElement = document.querySelector("span#sunday");
+        if (editableSundayElement) {
+            editableSundayElement.textContent = storedSunday;
+        }
+    }
+}
+
+function updateContact() {
+    const storedPhone = localStorage.getItem("phone");
+    if (storedPhone) {
+        const editablePhoneElement = document.querySelector("span#phone");
+        if (editablePhoneElement) {
+            editablePhoneElement.textContent = storedPhone;
+        }
+    }
+
+    const storedEmail = localStorage.getItem("email");
+    if (storedEmail) {
+        const editableEmailElement = document.querySelector("span#email");
+        if (editableEmailElement) {
+            editableEmailElement.textContent = storedEmail;
+        }
+    }
+
 }

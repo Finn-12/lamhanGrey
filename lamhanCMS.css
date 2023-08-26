@@ -26,10 +26,10 @@ label {
     cursor: pointer;
 }
 
-.home input {
+.update-landing-image input {
     display: none;
 }
 
-.about input {
+.about-images input {
     display: none;
 }
