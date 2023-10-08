@@ -79,7 +79,7 @@
 
                   <div class="button-container text-center">
                     <button class="btn">
-                      <a href="https://www.foodbooking.com/api/fb/9gbw_x" target="_blank">PICKUP ORDER OR CATERING
+                      <a href="https://www.foodbooking.com/api/fb/9gbw_x" target="_blank">PICKUP ORDER OR CATERING </a>
                     </button>
                     <button class="btn">
                       <a href="https://www.ubereats.com/ca/store/lamhan-banh-mi/f3IoOGGzRaaNlDXgF9qkoA" target="_blank" >ORDER UBEREATS</a>
@@ -123,7 +123,7 @@
                     <p>Inspired by Toronto’s vibrant and diverse food culture and our love for the foods that we grow up with, we embarked on a journey that started with a storefront shop located in Toronto Koreantown (Bloor & Christie). Our journey is guided with a promise to bring Toronto and its visitors authentic and savoring tastes of Banh Mi and Vietnamese street food.</p>
                     <div class="button-container-about text-center">
                       <button class="btn">
-                        VIEW MENU
+                        <a href="https://www.foodbooking.com/api/fb/9gbw_x" target="_blank">VIEW MENU</a>
                       </button>
                     </div>
                 </div>
@@ -247,7 +247,7 @@
           <h2 class="heading-title" data-aos="fade-up" data-aos-delay="150">Contact</h2>
           <ul class="list-unstyled" data-aos="fade-up" data-aos-delay="150">
             <li>Phone: (416)-530-4545</li>
-            <li>Email: lamhan.foods@gmail.com</li>
+            <li href="mailto:lamhan.foods@gmail.com">Email: lamhan.foods@gmail.com</li>
           </ul>
         </div>
       </div>
@@ -273,27 +273,26 @@
 <section id="contact-form" class="contact">
   <div class="container mt-5">
     <h1 class="section-title" data-aos="fade-up" data-aos-delay="150">Contact Us</h1>
-    <form class="row g-3">
-      <div class="col-sm-4 col-md-4 " data-aos="fade-up" data-aos-delay="150">
+    <form class="row g-3" action="send_email.php" method="post">
+      <div class="col-sm-4 col-md-4" data-aos="fade-up" data-aos-delay="150">
         <label for="firstName" class="form-label">Name*</label>
-        <input type="text" class="form-control" id="firstName" required> 
+        <input type="text" class="form-control" id="firstName" name="firstName" required> 
       </div>
       <div class="col-sm-4 col-md-4" data-aos="fade-up" data-aos-delay="150">
         <label for="email" class="form-label">Email*</label>
-        <input type="email" class="form-control" id="email" required> 
+        <input type="email" class="form-control" id="email" name="email" required> 
       </div>
       <div class="col-sm-4 col-md-4" data-aos="fade-up" data-aos-delay="150">
         <label for="subject" class="form-label">Subject*</label>
-        <input type="text" class="form-control" id="subject" required> 
+        <input type="text" class="form-control" id="subject" name="subject" required> 
       </div>
       <div class="col-md-12" data-aos="fade-up" data-aos-delay="150">
         <label for="comments" class="form-label">Message*</label>
-        <textarea class="form-control" id="comments" rows="6" required></textarea>
+        <textarea class="form-control" id="comments" name="comments" rows="6" required></textarea>
       </div>
       <div class="col-md-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="150">
         <button type="submit" class="btn submit-btn">Send</button>
       </div>
-
     </form>
   </div>
 </section>
@@ -392,7 +391,7 @@
          style="background-color: rgba(0, 0, 0, 0.2)"
          >
       © Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/"
+      <a class="text-white" href="https://www.lamhan.ca/"
          >Lamhan Foods</a
         >
     </div>

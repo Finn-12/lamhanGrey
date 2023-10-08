@@ -141,6 +141,15 @@ body {
     margin-top: 10px;
 }
 
+.button-container-about .btn a{
+  color:darkorange
+}
+
+.btn a:hover {
+  color: var(--color2);
+  background-color: var(--color1);
+} 
+
 /* gallery */
 
 .gallery {
